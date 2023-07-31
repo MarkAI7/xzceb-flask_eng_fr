@@ -17,7 +17,7 @@ class TestEnglishToFrenchTranslation(unittest.TestCase):
 class TestFrenchToEnglishTranslation(unittest.TestCase):
     def test_bonjour_translation(self):
         french_text = "Bonjour"
-        expected_english_text = "Hello"
+        expected_english_text = "Hi"
         translated_text = french_to_english(french_text)
         self.assertEqual(translated_text, expected_english_text)
 

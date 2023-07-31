@@ -16,8 +16,9 @@ def english_to_french(english_text):
     Returns:
         str: The translated French text.
     """
-    translator = MyMemoryTranslator(source='en', target='fr')
+    translator = MyMemoryTranslator(source='en-US', target='fr-FR')
     french_text = translator.translate(english_text)
+    print(french_text)	
     return french_text
 
 def french_to_english(french_text):
@@ -30,6 +31,7 @@ def french_to_english(french_text):
     Returns:
         str: The translated English text.
     """
-    translator = MyMemoryTranslator(source='fr', target='en')
+    translator = MyMemoryTranslator(source='fr-FR', target='en-US')
     english_text = translator.translate(french_text)
+    print(english_text)
     return english_text

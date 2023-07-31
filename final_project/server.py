@@ -1,23 +1,30 @@
-from flask import Flask, render_template, request, jsonify
-from .translator import english_to_french, french_to_english
+from machinetranslation.translator import english_to_french, french_to_english
+from flask import Flask, render_template, request
+
+app = Flask("Web Translator")
+
+
+from machinetranslation.translator import english_to_french, french_to_english
+from flask import Flask, render_template, request
 
 app = Flask("Web Translator")
 
 @app.route("/englishToFrench")
-def translate_to_french():
-    text_to_translate = request.args.get('textToTranslate')
-    translated_text = english_to_french(text_to_translate)
-    return jsonify({"translatedText": translated_text})
+def englishToFrench():
+    textToTranslate = request.args.get('textToTranslate')
+    translated_text = english_to_french(textToTranslate)  # Use the imported function
+    return "Translated text to French"
 
 @app.route("/frenchToEnglish")
-def translate_to_english():
-    text_to_translate = request.args.get('textToTranslate')
-    translated_text = french_to_english(text_to_translate)
-    return jsonify({"translatedText": translated_text})
+def frenchToEnglish():
+    textToTranslate = request.args.get('textToTranslate')
+    translated_text = french_to_english(textToTranslate)  # Use the imported function
+    return "Translated text to English"
 
 @app.route("/")
-def render_index_page():
-    return render_template('index.html')
+def renderIndexPage():
+    return render_template('index.html')  # Write the code to render template
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)

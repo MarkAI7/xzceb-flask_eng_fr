@@ -19,7 +19,8 @@ function translateToEnglish() {
         if (this.readyState == 4 && this.status == 200) {
             var responseJson = JSON.parse(xhttp.responseText);
             var translatedText = responseJson.translatedText;
-            document.getElementById('translated_output').textContent = translatedText;
+                 document.getElementById('translated_output').textContent = responseJson.translatedText;
+
         }
     };
     xhttp.open("GET", "/frenchToEnglish?textToTranslate=" + textToTranslate, true);

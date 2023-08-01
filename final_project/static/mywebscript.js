@@ -5,6 +5,8 @@ let translateToFrench = () => {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("translated_text").textContent = this.responseText;
+            // Display the translated output inside the 'translated_output' div
+            document.getElementById("translated_output").innerHTML = "Translated to French: " + xhttp.responseText;
         }
     };
     xhttp.open("GET", "englishToFrench?textToTranslate=" + textToTranslate, true);
@@ -18,6 +20,10 @@ let translateToEnglish = () => {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("translated_text").textContent = this.responseText;
+            // Display the translated output inside the 'translated_output' div
+            document.getElementById("translated_output").innerHTML = "Translated to English: " + xhttp.responseText;
+     
+     
         }
     };
     xhttp.open("GET", "frenchToEnglish?textToTranslate=" + textToTranslate, true);

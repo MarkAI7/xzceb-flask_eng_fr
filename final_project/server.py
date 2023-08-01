@@ -3,12 +3,6 @@ from flask import Flask, render_template, request
 
 app = Flask("Web Translator")
 
-
-from machinetranslation.translator import english_to_french, french_to_english
-from flask import Flask, render_template, request
-
-app = Flask("Web Translator")
-
 @app.route("/englishToFrench")
 def englishToFrench():
     textToTranslate = request.args.get('textToTranslate')

@@ -1,31 +1,27 @@
-let translateToFrench = () => {
-    textToTranslate = document.getElementById("textToTranslate").value;
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+function translateToFrench() {
+    var textToTranslate = document.getElementById('textToTranslate').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("translated_text").textContent = this.responseText;
-            // Display the translated output inside the 'translated_output' div
-            document.getElementById("translated_output").innerHTML = "Translated to French: " + xhttp.responseText;
+            var responseJson = JSON.parse(xhttp.responseText);
+            var translatedText = responseJson.translatedText;
+            document.getElementById('translated_text').textContent = translatedText;
         }
     };
-    xhttp.open("GET", "englishToFrench?textToTranslate=" + textToTranslate, true);
+    xhttp.open("GET", "/englishToFrench?textToTranslate=" + textToTranslate, true);
     xhttp.send();
 }
 
-let translateToEnglish = () => {
-    textToTranslate = document.getElementById("textToTranslate").value;
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+function translateToEnglish() {
+    var textToTranslate = document.getElementById('textToTranslate').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("translated_text").textContent = this.responseText;
-            // Display the translated output inside the 'translated_output' div
-            document.getElementById("translated_output").innerHTML = "Translated to English: " + xhttp.responseText;
-     
-     
+            var responseJson = JSON.parse(xhttp.responseText);
+            var translatedText = responseJson.translatedText;
+            document.getElementById('translated_text').textContent = translatedText;
         }
     };
-    xhttp.open("GET", "frenchToEnglish?textToTranslate=" + textToTranslate, true);
+    xhttp.open("GET", "/frenchToEnglish?textToTranslate=" + textToTranslate, true);
     xhttp.send();
 }
